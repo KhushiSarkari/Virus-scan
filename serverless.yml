@@ -1,0 +1,29 @@
+service: clambda-av
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  apiGateway:
+    shouldStartNameWithService: true
+  memorySize: 128
+  timeout: 30
+
+functions:
+  virusScan:
+    handler: handler.virusScan
+    description: virus scan api
+    events:
+        - http:
+              path: /scan
+              method: post
+              integration: lambda
+
+package:
+  exclude:
+    - node_modules/**
+    - coverage/**

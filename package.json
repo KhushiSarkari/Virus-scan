@@ -14,9 +14,7 @@
         "typescript": "^4.6.4"
     },
     "scripts": {
-        "build": "./build.sh",
         "deploy": "sls deploy",
-        "test": "jest handler.test.js",
         "local": "serverless offline"
     }
 }
